@@ -77,7 +77,7 @@
 	  <img id="pic"src="http://dummyimage.com/300x400" alt="Time Of Day Pic" class="flexible" />
      </main>
     <footer>
-      <small>&copy; 2020 - <span> id="copyright">copyright goes here</span>, All Rights Reserved ~
+      <small>&copy; 2020 - <span id="copyright">copyright goes here</span>, All Rights Reserved ~
       <a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
       <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
       </small>
@@ -96,20 +96,36 @@
 	let myPic = '';
 
 	//REMOVE THIS LINE BELOW FOR TESTING ONLY
-	//myHours = 13;
+	//myHours = 2;
 
-	if(myHours < 12){
+	if(myHours >= 5 && myHours < 12){
 		//alert('good morning!');
 		myText = "Good Morning";
 		myColor = "orange";
 		myPic = "images/morning.jpg"
-	}else{
+
+
+
+	}else if(myHours >= 12 && myHours < 18){
+
 		myText = "Good Afternoon";
 		myColor = "green";
 		myPic = "images/afternoon.jpg"
+
+
+	}else if(myHours >= 18 && myHours < 23){
+		myText = "Good Evening";
+		myColor = "blue";
+		myPic = "images/evening.jpg"
+
+
+	}else{
+		myText = "Good Night";
+		myColor = "black";
+		myPic = "images/night.jpg"
 	}
 
-	console.log(myText);
+	console.log(myHours);
 
 
 
@@ -125,9 +141,9 @@
 	//we'll use this to create a dynamic copyright
 	let myCopyright = myDate.getFullYear();
 
-
 	//load copyright info into a span on the page
-	document.getElementById('copyright').innerHTML = myCopyright;
+	
+	document.getElementById('copyright') .innerHTML = myCopyright;
 
 	//change pic
 	document.getElementById('pic').src = myPic;
